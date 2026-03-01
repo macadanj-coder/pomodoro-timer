@@ -18,8 +18,12 @@ function toggleTaskCompletion(taskID) {
     if (taskIndex !== -1) {
         tasks[taskIndex].isCompleted = !tasks[taskIndex].isCompleted;
         localStorage.setItem('tasks', JSON.stringify(tasks));
+        if (tasks[taskIndex].isCompleted) {
+            taskList.removeChild(document.getElementById(taskID));
+        } else {
+            completedTasks.removeChild(document.getElementById(taskID));
+        }
     }   
-    taskList.removeChild(document.getElementById(taskID));
     drawTask(tasks[taskIndex]);
 }
 
