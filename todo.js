@@ -85,6 +85,14 @@ function removeTask(taskID) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+function completeFirstTask() {  
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const firstIncompleteTask = tasks.find(task => !task.isCompleted);
+    if (firstIncompleteTask) {
+        toggleTaskCompletion(firstIncompleteTask.taskID);
+    }
+}   
+
 function saveTask(task) {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const existingIndex = tasks.findIndex(t => t.taskID === task.taskID);

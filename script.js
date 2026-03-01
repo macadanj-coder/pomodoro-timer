@@ -69,6 +69,9 @@ function sendNotification(title, options) {
 function switchMode() {
     isWorkMode = !isWorkMode;
     timeLeft = isWorkMode ? workDuration : breakDuration;
+    if (!isWorkMode) {
+        completeFirstTask();
+    }
     if (autoStartNextSession && !isRunning) {
         startTimer();
     }
