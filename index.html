@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id ="pomodoro-type">Work</h1>
+        <div id = "timer" class="timer-display">25:00</div>
+        <div class="controls">
+            <button id="start" onClick = "startTimer()">Start</button>
+            <button id="pause" onClick = "pauseTimer()">Pause</button>
+            <button id="reset" onClick = "resetTimer()">Reset</button>
+        </div>
+        
+    </div>
+
+    <div class="todo-list">
+        <h2>Tasks</h2>
+
+        <div class="todo-item">
+            <input id="taskInput" placeholder="What are you working on?">
+            <button onclick="addTask()">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
