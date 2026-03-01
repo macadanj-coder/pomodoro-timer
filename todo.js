@@ -12,7 +12,6 @@ function createTask(taskText) {
     };
 }
 
-
 function toggleTaskCompletion(taskID) { 
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskIndex = tasks.findIndex(task => task.taskID === taskID);
@@ -24,27 +23,41 @@ function toggleTaskCompletion(taskID) {
     drawTask(tasks[taskIndex]);
 }
 
+function createCompleteButton(task) {
+    const button = document.createElement('button');
+    button.textContent = task.isCompleted ? "↺" : "✓";
+    button.classList.add('complete-button');
+    button.onclick = function() {
+        toggleTaskCompletion(task.taskID);
+    };
+    return button;
+}
+
+function createDeleteButton(task) {
+    const button = document.createElement('button');
+    button.textContent = "✕";
+    button.classList.add('delete-button');
+    button.onclick = function() {
+        if (task.isCompleted) {
+            completedTasks.removeChild(document.getElementById(task.taskID));
+        } else {
+            taskList.removeChild(document.getElementById(task.taskID));
+        }
+        removeTask(task.taskID);
+    };
+    return button;
+}
+
 function drawTask(task) {
     const li = document.createElement('li');
     li.id = task.taskID;
     li.textContent = task.taskText;
-    const completeButton = document.createElement('button');
-    completeButton.textContent = "✓";
-    completeButton.classList.add('complete-button');
-    completeButton.onclick = toggleTaskCompletion.bind(null, task.taskID);
+    const completeButton = createCompleteButton(task);
     li.appendChild(completeButton);
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = "✕";
-    deleteButton.classList.add('delete-button');
-    deleteButton.onclick = function() {
-        if (task.isCompleted) {
-            completedTasks.removeChild(li);
-        } else {
-            taskList.removeChild(li);
-        }
-        removeTask(task.taskID);
-    };
+
+    const deleteButton = createDeleteButton(task);
     li.appendChild(deleteButton)
+
     if (task.isCompleted) {
         completedTasks.appendChild(li);
     } else {
