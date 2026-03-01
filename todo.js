@@ -23,8 +23,8 @@ function toggleTaskCompletion(taskID) {
         } else {
             completedTasks.removeChild(document.getElementById(taskID));
         }
+        drawTask(tasks[taskIndex]);
     }   
-    drawTask(tasks[taskIndex]);
 }
 
 function createCompleteButton(task) {
