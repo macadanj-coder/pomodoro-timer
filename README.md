@@ -31,7 +31,6 @@ A minimalist web-based Pomodoro Timer with integrated task management. Stay prod
 pomodoro-timer/
 ├── index.html          # Main HTML structure
 ├── style.css           # Original dark theme stylesheet
-├── new_style.css       # Modern blue/purple variant (default)
 ├── script.js           # Timer logic and session management
 ├── todo.js             # Task management functionality
 ├── favicon.ico         # Browser favicon
@@ -60,9 +59,6 @@ Manages the task list:
 
 ### [style.css](style.css)
 Original stylesheet using consistent CSS variable naming with a dark gray theme.
-
-### [new_style.css](new_style.css)
-Modern theme variant with blue/purple accents. Currently set as the default theme with CSS variable naming that matches `style.css` for easy swapping.
 
 ## Getting Started
 
@@ -96,9 +92,6 @@ let longBreakDuration = 15 * 60;      // Long break
 ### Change Theme
 In [index.html](index.html), switch the stylesheet link:
 ```html
-<!-- Use new_style.css for modern blue/purple theme -->
-<link rel="stylesheet" href="new_style.css">
-
 <!-- Or use style.css for original dark gray theme -->
 <link rel="stylesheet" href="style.css">
 ```
