@@ -89,24 +89,6 @@ let longWorkDuration = 50 * 60;       // Long work session
 let longBreakDuration = 15 * 60;      // Long break
 ```
 
-### Change Theme
-In [index.html](index.html), switch the stylesheet link:
-```html
-<!-- Or use style.css for original dark gray theme -->
-<link rel="stylesheet" href="style.css">
-```
-
-### Modify Colors
-Both stylesheets use CSS variables. Edit the `:root` section:
-```css
-:root {
-    --primary: #38bdf8;          /* Main accent color */
-    --text: #f8fafc;             /* Text color */
-    --container-bg: #172449;     /* Background */
-    --success: #22c55e;          /* Work session color */
-    /* ... more variables ... */
-}
-```
 
 ## Browser Support
 
